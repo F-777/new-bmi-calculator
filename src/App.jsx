@@ -1,35 +1,34 @@
-import React, {useState} from 'react'
-
-import './index.css'
+import React, {useState} from 'react';
+import './index.css';
 
 function App() {
 
   // state
-  const [weight, setWeight] = useState(0)
-  const [height, setHeight] = useState(0)
-  const [bmi, setBmi] = useState('')
-  const [message, setMessage] = useState('')
+  const [weight, setWeight] = useState(0);
+  const [height, setHeight] = useState(0);
+  const [bmi, setBmi] = useState('');
+  const [message, setMessage] = useState('');
 
 
 
   let calcBmi = (event) => {
     //prevent submitting
-    event.preventDefault()
+    event.preventDefault();
 
     if (weight === 0 || height === 0) {
-      alert('Please enter a valid weight and height')
+      alert('Please enter a valid weight and height');
     } else {
-      let bmi = (weight / (height * height) * 703)
-      setBmi(bmi.toFixed(1))
+      let bmi = (weight / (height * height) * 703);
+      setBmi(bmi.toFixed(1));
 
       // Logic for message
 
       if (bmi < 25) {
-        setMessage('You are underweight')
+        setMessage('You are underweight');
       } else if (bmi >= 25 && bmi < 30) {
-        setMessage('You are a healthy weight')
+        setMessage('You are a healthy weight');
       } else {
-        setMessage('You are overweight')
+        setMessage('You are overweight');
       }
     }
   }
@@ -41,17 +40,17 @@ function App() {
     imgSrc = null
   } else {
     if(bmi < 25) {
-      imgSrc = require('../src/assets/underweight.png')
+      imgSrc = require('../src/assets/underweight.png');
     } else if (bmi >= 25 && bmi < 30) {
-      imgSrc = require('../src/assets/healthy.png')
+      imgSrc = require('../src/assets/healthy.png');
     } else {
-      imgSrc = require('../src/assets/overweight.png')
+      imgSrc = require('../src/assets/overweight.png');
     }
   }
 
 
   let reload = () => {
-    window.location.reload()
+    window.location.reload();
   }
 
   return (
